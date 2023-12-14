@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="RayTracer" default="compile" basedir=".">
+
+    <property name="src" value="src"/>
+    <property name="build" value="build"/>
+    <property name="modulepath" value="javafx.controls"/>
+    <property environment="env"/>
+    <property name="projet.lib.dir" value="lib"/>
+    <property name="doc.dir" value="doc"/>
+    <property name="javafxlib.dir" value="${env.PATH_TO_FX}"/>
+
+    <path id="projet.classpath">
+        <fileset dir="${javafxlib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${build}" />
+    </path>
+
+    <target name="init">
+      <!-- Create the time stamp -->
+      <tstamp/>
+      <!-- Create the build directory structure used by compile -->
+      <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="init" description="compile the source">
+        <!-- Compile the Java code from ${src} into ${build} -->
+        <javac includeantruntime="false" srcdir="${src}" destdir="${build}">
+            <classpath refid="projet.classpath"/>
+        </javac>
+    </target>
+
+    <target name="run" description="execution" depends="compile">
+        <java classname="gui.MainApp">
+            <classpath refid="projet.classpath"/>
+        </java>
+    </target>
+
+    <target name = "clean" description="delete jar">
+      <delete file="test.jar"/>
+    </target>
+
+    <target name="doc" description="generate javadoc">
+    <javadoc encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" sourcepath="${src}" destdir="${doc.dir}">
+        <classpath refid="projet.classpath"/>
+    </javadoc>
+  </target>
+
+</project>

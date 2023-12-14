@@ -1,0 +1,45 @@
+#Dossiers générés par les compilations à ne pas commit
+dev/bin/
+dev/build/
+dev/doc
+javadoc/
+
+#Fichiers d'IDE
+.classpath
+.settings
+.project
+
+#External libraries
+dev/lib/
+
+#.jar généré par ant. On ne le commit pas
+dev/RayTracer.jar
+
+#Fichiers générés par la compilation du rapport latex
+Rapport RayTracer.pdf
+Rapport RayTracer.synctex.gz
+*.dia~
+*.dia.autosave
+
+#Fichiers resources lourds
+*.ply
+
+#Fichiers geogebra
+*.ggb
+rapport/sources/img/rt/photoshop
+rapport v2/img/rt/photoshop
+
+#Image du rendu généré automatiquement
+RenderOutput.png
+
+#Fichiers Latex inutiles
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.pdf
+*.gz
